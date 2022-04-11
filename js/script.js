@@ -98,7 +98,7 @@ formClearBtn.addEventListener("click",
         distance.value = "";
 
         const age = document.getElementById("age")
-        age.value = "";
+        age.value = "maggiorenne";
     }
 );
 
