@@ -1,13 +1,34 @@
+//quando l'utente clicca il bottone
 const formBtn = document.getElementById("form-btn");
 console.log(formBtn);
-formBtn.addEventListener("click",
-    function() {
+formBtn.addEventListener("click", function() {
     //chiedere il nome e il cognome dell'utente
         const userName = document.getElementById("user-name").value;
         console.log(userName);
-     //chiedere quanti km deve percorrere l'utente   
+    //chiedere quanti km deve percorrere l'utente   
         const distance = document.getElementById("distance").value;
         console.log(distance)
+    //se i dati di distance non vengono inseriti in forma numerica
+        if(isNaN(distance)) {
+            alert("I dati inseriti non sono corretti")
+        //Ripulire i campi di distance
+            let distance = document.getElementById("distance");
+            distance.value = "";
+        //Nascondere il biglietto
+            let ticket = document.querySelector(".ticket");
+            ticket.classList.add("d-none");
+            
+    //se i dati di disctance vengono inseriti corretamente
+         }   else {
+        //calcolare il prezzo        
+                let price = distance * 0.21;
+                console.log(price);
+        //Nascondere il biglietto
+                let ticket = document.querySelector(".ticket");
+                console.log(ticket);
+                ticket.classList.remove("d-none");
+        }
+
     //chiedere l'età dell'utente
         const age = document.getElementById("age").value;
         console.log(age)
@@ -20,12 +41,12 @@ formBtn.addEventListener("click",
     //inserisci nome dell'utente
         document.getElementById('ticket-name').innerHTML = `${userName}`;
         
-    //calcola e inserisci numero carrozza nel biglietto
+    //calcolare e inserisci numero carrozza nel biglietto
         const carrozza = Math.floor(Math.random() * 9) + 1;
         console.log(carrozza);
         document.getElementById('carrozza').innerHTML = `${carrozza}`;
 
-    //calcola e inserisci codice cp nel biglietto
+    //calcolare e inserisci codice cp nel biglietto
         const codiceCP = Math.floor(Math.random() * 300) + 9200;
         console.log(codiceCP);
         document.getElementById('codiceCP').innerHTML = `${codiceCP}`;
@@ -54,12 +75,6 @@ formBtn.addEventListener("click",
         const ticketPrice = document.querySelector(".price p")
         console.log(ticketPrice)
         ticketPrice.innerHTML = `${finalprice.toFixed(2)}` + `€`;
-
-    //far vedere il biglietto
-        const ticket = document.querySelector(".ticket");
-        console.log(ticket);
-        ticket.classList.remove("d-none");
-       
     }
 );
 
@@ -69,7 +84,7 @@ console.log(formClearBtn);
 
 formClearBtn.addEventListener("click", 
     function() {
-        
+    
     //Nascondo biglietto
         const ticket = document.querySelector(".ticket");
         ticket.classList.add("d-none");
