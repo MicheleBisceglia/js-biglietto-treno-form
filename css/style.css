@@ -1,3 +1,9 @@
 body {
     background-color: #b91450;
 }
+ 
+.ms_container label,
+.ms_container button {
+      color: #b91450;  
+ }
+

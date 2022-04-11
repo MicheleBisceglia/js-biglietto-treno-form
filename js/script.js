@@ -70,7 +70,7 @@ console.log(formClearBtn);
 formClearBtn.addEventListener("click", 
     function() {
         
-    //Nascondo bigliettp
+    //Nascondo biglietto
         const ticket = document.querySelector(".ticket");
         ticket.classList.add("d-none");
 
